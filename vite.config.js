@@ -15,7 +15,7 @@ export default defineConfig({
     }),
   ],
   optimizeDeps: {
-    exclude: ['@creit.tech/stellar-wallets-kit'],
+    include: ['@creit.tech/stellar-wallets-kit', '@stellar/freighter-api'],
   },
 })
 
