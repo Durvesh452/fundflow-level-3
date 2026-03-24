@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FundFlow — Real-time Crowdfunding on Stellar</title>
+    <meta name="description" content="FundFlow is a decentralized, real-time crowdfunding platform built on the Stellar Network using Soroban smart contracts. Transparent, immutable, and powered by XLM." />
+    <meta name="keywords" content="Stellar, Soroban, crowdfunding, blockchain, XLM, decentralized" />
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <script>
+      window.addEventListener('error', function(event) {
+        const errorDiv = document.createElement('div');
+        errorDiv.style.color = 'red';
+        errorDiv.style.padding = '10px';
+        errorDiv.style.background = 'black';
+        errorDiv.style.position = 'relative';
+        errorDiv.style.zIndex = '9999';
+        errorDiv.style.fontFamily = 'monospace';
+        errorDiv.innerHTML = '<h2>Global Error:</h2><pre>' + (event.error ? event.error.stack : event.message) + '</pre>';
+        document.body.prepend(errorDiv);
+      });
+      const originalConsoleError = console.error;
+      console.error = function(...args) {
+        const errorDiv = document.createElement('div');
+        errorDiv.style.color = 'yellow';
+        errorDiv.style.padding = '10px';
+        errorDiv.style.background = 'black';
+        errorDiv.style.position = 'relative';
+        errorDiv.style.zIndex = '9999';
+        errorDiv.style.fontFamily = 'monospace';
+        errorDiv.innerHTML = '<h2>Console Error:</h2><pre>' + args.map(a => typeof a === "object" && a ? (a.stack || JSON.stringify(a)) : a).join(" ") + '</pre>';
+        document.body.prepend(errorDiv);
+        originalConsoleError.apply(console, args);
+      };
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+
+  </body>
+</html>
+
