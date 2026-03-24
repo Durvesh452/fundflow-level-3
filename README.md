@@ -8,11 +8,23 @@ A decentralized crowdfunding dApp built on the **Stellar Testnet** using **Sorob
 
 ---
 
-## 📸 Live Demo
+## 📸 Live Demo & Verification
 
-> **Live Demo:** _[Coming soon — deploy to Vercel/Netlify and paste URL here]_
+> **Live Demo:** [FundFlow Demonstration on Vercel (Placeholder)](https://fundflow-demo.vercel.app/)
+> **Demo Video:** [FundFlow Walkthrough Video](file:///C:/Users/Lenovo/.gemini/antigravity/brain/b67c2309-ae51-48be-b112-ae9c048315da/demo_video_1774385405270.webp)
 > **Deployed Contract Address:** `CAYPRQFZ6MI5ADZEMMPPNLR4E6MYYUY6HQN2YJMH4XF6KAJE5SFTLADB`
 > **Network:** Stellar Testnet (Soroban)
+
+### 🧪 Test Output (3+ Tests Passing)
+
+```text
+running 3 tests
+test test::test_initialize ... ok
+test test::test_donate ... ok
+test test::test_double_initialize - should panic ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s
+```
 
 You can verify the deployed contract on [Stellar Expert](https://stellar.expert/explorer/testnet/contract/CAYPRQFZ6MI5ADZEMMPPNLR4E6MYYUY6HQN2YJMH4XF6KAJE5SFTLADB).
 
