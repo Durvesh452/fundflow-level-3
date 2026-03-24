@@ -19,8 +19,7 @@ function App() {
     openModal, closeModal, connectWallet, disconnect, signTransaction,
   } = useWallet();
 
-  // Expose signTransaction for DonateForm
-  window.__fundflow_sign = signTransaction;
+  // handleDonated callback remains same
 
   const handleDonated = useCallback(async (hash) => {
     // Immediately refresh after a successful donation
@@ -137,6 +136,7 @@ function App() {
             <DonateForm
               publicKey={publicKey}
               isConnected={isConnected}
+              signTransaction={signTransaction}
               onConnect={openModal}
               onDonated={handleDonated}
             />

@@ -55,7 +55,7 @@ const getErrorInfo = (err) => {
   return { title: 'Error', body: msg || 'An unexpected error occurred.', icon: <XCircle size={18} /> };
 };
 
-const DonateForm = ({ publicKey, isConnected, onConnect, onDonated }) => {
+const DonateForm = ({ publicKey, isConnected, signTransaction, onConnect, onDonated }) => {
   const [amount, setAmount] = useState('');
   const [txStatus, setTxStatus] = useState(TX_STATUS.IDLE);
   const [txHash, setTxHash] = useState(null);
@@ -71,12 +71,6 @@ const DonateForm = ({ publicKey, isConnected, onConnect, onDonated }) => {
     setTxHash(null);
 
     try {
-      // Import wallet sign from kit (passed as window global by hook setup)
-      const { signTransaction } = await import('../hooks/useWallet').then(m => {
-        // We need the kit's signTransaction — use event-based approach
-        return { signTransaction: window.__fundflow_sign };
-      });
-
       const hash = await submitDonation(publicKey, amount, signTransaction);
       setTxHash(hash);
       setTxStatus(TX_STATUS.SUCCESS);
