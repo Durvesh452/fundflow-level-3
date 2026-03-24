@@ -58,11 +58,11 @@ export const useWallet = () => {
       setWalletName(wallet.name);
       setModalOpen(false);
     } catch (err) {
-      console.error('Wallet connection error:', err);
       let errMsg = err?.message || String(err);
       if (errMsg.toLowerCase().includes('not connected') || errMsg.toLowerCase().includes('not installed')) {
         setError('WALLET_NOT_FOUND');
       } else {
+        console.error('Wallet connection error:', err);
         setError(errMsg);
       }
     } finally {
