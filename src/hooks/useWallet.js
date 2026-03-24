@@ -58,8 +58,13 @@ export const useWallet = () => {
       setWalletName(wallet.name);
       setModalOpen(false);
     } catch (err) {
-      console.error(err);
-      setError('Failed to connect: ' + (err?.message || err));
+      console.error('Wallet connection error:', err);
+      let errMsg = err?.message || String(err);
+      if (errMsg.toLowerCase().includes('not connected') || errMsg.toLowerCase().includes('not installed')) {
+        setError('WALLET_NOT_FOUND');
+      } else {
+        setError(errMsg);
+      }
     } finally {
       setConnecting(false);
       setSelectedWallet(null);
