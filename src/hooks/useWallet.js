@@ -53,7 +53,7 @@ export const useWallet = () => {
 
     try {
       StellarWalletsKit.setWallet(wallet.id);
-      const { address } = await StellarWalletsKit.getAddress();
+      const { address } = await StellarWalletsKit.selectedModule.getAddress();
       setPublicKey(address);
       setWalletName(wallet.name);
       setModalOpen(false);
